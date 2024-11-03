@@ -20,8 +20,7 @@ int main(int argc, char *argv[]) {
             std::cerr << "Failed to open /dev/null\n";
             return 1;
         };
-        if (dup2(devnull_fd, STDIN_FILENO) != -1 ||
-            dup2(devnull_fd, STDOUT_FILENO) != -1 ||
+        if (dup2(devnull_fd, STDOUT_FILENO) != -1 ||
             dup2(devnull_fd, STDERR_FILENO) != -1) {
             close(devnull_fd);
             std::cerr << "Failed to redirect i/o\n";
